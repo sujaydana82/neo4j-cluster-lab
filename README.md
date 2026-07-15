@@ -2,35 +2,33 @@
 
 ## Objective
 
-This project is a hands-on learning journey to understand:
+Hands-on learning project to understand Neo4j clustering and later deploy it on Kubernetes and AKS.
 
-- Neo4j clustering
-- Distributed database concepts
-- Kubernetes deployment
-- Helm packaging
-- ArgoCD GitOps
-- AKS production architecture
-
-## Learning Path
+## Learning Approach
 
 Phase 1:
-Neo4j Cluster Fundamentals
+Neo4j clustering using Docker
 
 Phase 2:
-Neo4j Cluster on Minikube
+Neo4j cluster deployment on Minikube
 
 Phase 3:
-Helm Deployment
+Helm based deployment
 
 Phase 4:
-ArgoCD GitOps
+ArgoCD GitOps deployment
 
 Phase 5:
-Production AKS Architecture
+Production AKS architecture
 
 
-## Architecture Evolution
+## Current Phase
 
-### Phase 1
+Understanding Neo4j clustering concepts:
 
-Three Neo4j servers:
+- Core members
+- Leader election
+- Followers
+- Raft consensus
+- Quorum
+- Failure recovery
