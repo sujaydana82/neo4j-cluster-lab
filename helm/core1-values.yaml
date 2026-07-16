@@ -1,0 +1,42 @@
+neo4j:
+  name: core-1
+
+  edition: enterprise
+
+  acceptLicenseAgreement: "eval"
+
+  passwordFromSecret: neo4j-auth
+
+  minimumClusterSize: 1
+
+  resources:
+    cpu: "1000m"
+    memory: "2Gi"
+
+  clustering:
+    enabled: true
+
+  operations:
+    enableServer: false
+
+  podSpec:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: []
+
+volumes:
+  data:
+    mode: defaultStorageClass
+    defaultStorageClass:
+      requests:
+        storage: 10Gi
+
+services:
+  neo4j:
+    enabled: true
+    spec:
+      type: ClusterIP
+
+config:
+  server.default_listen_address: "0.0.0.0"
+
+  server.cluster.raft.minimum_voting_members: "2"

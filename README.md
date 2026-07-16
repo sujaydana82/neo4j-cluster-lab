@@ -1,34 +1,40 @@
-# Neo4j Cluster Lab
+# Neo4j Enterprise Cluster on Kubernetes
 
-## Objective
+## Architecture
 
-Hands-on learning project to understand Neo4j clustering and later deploy it on Kubernetes and AKS.
+3-node Neo4j causal cluster deployed using Helm.
 
-## Learning Approach
+Components:
 
-Phase 1:
-Neo4j clustering using Docker
+- Kubernetes StatefulSets
+- Neo4j Enterprise Edition
+- Persistent Volumes
+- Kubernetes Services
+- Helm deployment
 
-Phase 2:
-Neo4j cluster deployment on Minikube
+## Cluster
 
-Phase 3:
-Helm based deployment
+Nodes:
 
-Phase 4:
-ArgoCD GitOps deployment
-
-Phase 5:
-Production AKS architecture
+core-1
+core-2
+core-3
 
 
-## Current Phase
+## Deployment
 
-Understanding Neo4j clustering concepts:
+helm install core-1 neo4j/neo4j \
+ -n neo4j \
+ -f helm/core-1-values.yaml
 
-- Core members
-- Leader election
-- Followers
-- Raft consensus
-- Quorum
-- Failure recovery
+
+## Validation
+
+kubectl get pods -n neo4j
+
+cypher-shell:
+SHOW SERVERS
+
+## Cleanup
+
+helm uninstall core-1 -n neo4j
